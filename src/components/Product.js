@@ -7,8 +7,7 @@ import PropTypes from 'prop-types';
 
 const Product = (props) => {
   // const img = allImage[`items${product.id}`]
-  const {product, onCartBtnClick} = props;
-  const {id, name, price, info, avg_stars, total_reviews} = product;
+  const {id, name, price, info, avg_stars, total_reviews, onCartBtnClick} = props;
   const handleCartBtnClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -49,7 +48,7 @@ const Product = (props) => {
         <div className="card-body">
           <div className="d-flex justify-content-between align-items-center">
             <a href="" className="item-title">
-              {product.price}
+              {price}
             </a>
             <h4 className="price pull-right">{name}</h4>
           </div>

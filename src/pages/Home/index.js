@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-import mainImage from '../assets/images/main.jpg';
-import Product from '../components/Product';
-import Banner from '../components/Banner';
-import Navitation from '../components/Nav/Nav';
-import Collection from '../components/Home/Category';
-import WatchImg from '../assets/images/products/item5.jpeg';
-import ClothesImg from '../assets/images/products/item6.jpeg';
-import ShoesImg from '../assets/images/products/item7.jpeg';
-import GlovesImg from '../assets/images/products/item10.jpeg';
-import Gaurantees from '../components/Home/Gaurantees';
-import Footer from '../components/Home/Footer';
-import Drawer from '../components/Drawer';
-import Cart from '../components/Home/Cart';
+import mainImage from '../../assets/images/main.jpg';
+import Product from '../../components/Product';
+import Banner from './Banner';
+import Collection from './Category';
+import WatchImg from '../../assets/images/products/item5.jpeg';
+import ClothesImg from '../../assets/images/products/item6.jpeg';
+import ShoesImg from '../../assets/images/products/item7.jpeg';
+import GlovesImg from '../../assets/images/products/item10.jpeg';
+import Gaurantees from './Gaurantees';
 
 const state = {
   newArrivals: [
@@ -141,7 +137,6 @@ const Home = ({onAddCartItem}) => {
         </section>
         <Gaurantees />
       </main>
-      <Footer />
       <style jsx>
         {`
           /* navigation */

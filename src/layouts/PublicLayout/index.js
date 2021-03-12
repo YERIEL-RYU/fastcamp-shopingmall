@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
-import Drawer from '../../Drawer';
-import Cart from '../../Home/Cart';
-import Footer from '../../Home/Footer';
-import Navitation from '../../Nav/Nav';
+import Drawer from '../../components/Drawer';
+import Cart from './Cart';
+import Footer from './Footer';
+import Navitation from '../../components/Nav/Nav';
 
 const Index = (props) => {
   const {component : Component, ...rest} = props;

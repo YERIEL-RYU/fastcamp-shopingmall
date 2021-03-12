@@ -4,7 +4,7 @@ import ProductList from './pages/ProductList'
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import PublicLayout from './components/layouts/PublicLayout'
+import PublicLayout from './layouts/PublicLayout'
 
 const App = () => {
   return (
