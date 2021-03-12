@@ -76,63 +76,17 @@ const state = {
   ],
 };
 
-const Home = () => {
+const Home = ({onAddCartItem}) => {
   const [isShopingCartOpen, setIsShopingCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
-  const onCartClick = () => {
-    setIsShopingCartOpen(!isShopingCartOpen);
-  };
-
-  const handleCartClosed = () => {
-    setIsShopingCartOpen(false);
-  };
-
   const handleProductCartClicked = (product) => {
-    const found = cartItems.find((v) => v.product.id === product.id);
-    if (found) {
-      found.count += 1;
-      setCartItems([...cartItems]);
-    } else {
-      setCartItems([...cartItems, { product, count: 1 }]);
-    }
+    onAddCartItem(product);
   };
 
-  const handleCartItemRemoved = ({ id }) => {
-      const foundItem = cartItems.find((v) => v.product.id === id);
-      console.log('handleCartItemRemoved : ', foundItem )
-    if (foundItem === null) {
-      throw new Error(`Can not find the itme (${id})`);
-    }
-    if (foundItem !== undefined&& foundItem.count > 1) {
-        console.log('else if')
-      foundItem.count -= 1;
-    } else {
-        const index = cartItems.indexOf(foundItem);
-        console.log('else : ',index )
-      
-      cartItems.splice(index, 1);
-      console.log('cartItem : ', cartItems)
-    }
-    console.log('last')
-    setCartItems([...cartItems]);
-  };
-
-  const handleCheckout = ({ items, total }) => {
-    console.log(`Checkout ${JSON.stringify(items)} total : ${total}`);
-  };
 
   return (
     <>
-      <Drawer
-        isOpen={isShopingCartOpen}
-        component={Cart}
-        items={cartItems}
-        onClose={handleCartClosed}
-        onItemRemove={handleCartItemRemoved}
-        onCheckout={handleCheckout}
-      />
-      <Navitation onCartClick={onCartClick} cartItemCounts={cartItems.length} />
       <main>
         <Banner />
         <section className="new-arrivals container">

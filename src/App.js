@@ -1,20 +1,28 @@
 import React from 'react';
-import Home from './pages/Home'
+import Home from './pages/Home';
+import ProductList from './pages/ProductList'
 import 'bootstrap/dist/css/bootstrap.css';
-import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/css/all.css';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import PublicLayout from './components/layouts/PublicLayout'
 
 const App = () => {
-
   return (
-    <div>
-      <Home />
+    <>
+      <BrowserRouter>
+        <Switch>
+          <PublicLayout path="/home" exact component={Home} />
+          <PublicLayout path="/products" component={ProductList} />
+          <Redirect from="/" to="/home" />
+        </Switch>
+      </BrowserRouter>
       <style jsx global>{`
-				@import url('//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en');
-        
-				body {
+        @import url('//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en');
+
+        body {
           color: #676a6c;
           font-family: 'Open Sans', helvetica, arial, sans-serif;
-					font-size: 14px;
+          font-size: 14px;
         }
         h1 {
           font-size: 30px;
@@ -41,14 +49,14 @@ const App = () => {
           padding: 10px 20px;
           font-weight: 600;
         }
-				.btn-primary:hover,
-				.btn-primary:focus,
-				.btn-primary.active,
-				.btn-primary:not(:disabled):not(.disabled):active {
-				  background-color: #18a689;
-				  border-color: #18a689;
-				  color: #ffffff;
-				}
+        .btn-primary:hover,
+        .btn-primary:focus,
+        .btn-primary.active,
+        .btn-primary:not(:disabled):not(.disabled):active {
+          background-color: #18a689;
+          border-color: #18a689;
+          color: #ffffff;
+        }
         section p {
           color: rgb(210, 209, 209);
           font-size: 15px;
@@ -67,13 +75,13 @@ const App = () => {
           background-color: #1ab394;
           color: #ffffff;
         }
-				.navy {
-				  color: #1ab394;
-				}
-				.gray-bg {
-				  background-color: #f3f3f4;
-				  width: 100%;
-				}
+        .navy {
+          color: #1ab394;
+        }
+        .gray-bg {
+          background-color: #f3f3f4;
+          width: 100%;
+        }
         a.navy-link {
           color: #1ab394;
           text-decoration: none;
@@ -94,7 +102,7 @@ const App = () => {
           text-align: center;
         }
       `}</style>
-    </div>
+    </>
   );
 };
 

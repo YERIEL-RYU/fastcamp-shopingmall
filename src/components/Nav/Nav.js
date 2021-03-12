@@ -21,8 +21,8 @@ const Nav = ({onCartClick, cartItemCounts}) => {
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav">
-              <NavItem to='#' text="Home" active />
-              <NavItem to='#' text="Products"/>
+              <NavItem to='/home' text="Home" active />
+              <NavItem to='/products' text="Products"/>
             </ul>
           </div>
         </div>

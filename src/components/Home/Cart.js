@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 
 const CartItem = memo(function C({ id, name, price, count, onItemRemove }) {
-  const handleItemBtnClicked = (evt) => {
-    evt.preventDefault();
-    evt.stopPropagation();
+  const handleItemBtnClicked = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     onItemRemove({ id, name, price });
   };
   return (
@@ -30,15 +30,15 @@ const CartItem = memo(function C({ id, name, price, count, onItemRemove }) {
 const Cart = ({ items, onItemRemove, onCheckout, onClose }) => {
   const total = items.reduce((acc, o) => acc + o.count * o.product.price, 0);
 
-  const handleCheckoutBtnClicked = (evt) => {
-    evt.preventDefault();
-    evt.stopPropagation();
+  const handleCheckoutBtnClicked = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     onCheckout({ items, total: total });
   };
 
-  const handleCloseBtnClicked = (evt) => {
-    evt.preventDefault();
-    evt.stopPropagation();
+  const handleCloseBtnClicked = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     onClose();
   };
   return (

@@ -1,27 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { NavLink } from 'react-router-dom';
 
-const NavItem = (props) => {
-  const { to, text, action, active } = props;
-  const onClickAnchor = (e) => {
-    if (action) {
-      e.preventDefault();
-      e.stopPropagation();
-      action();
-    }
+const LinkItem = React.forwardRef((props, ref) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    props.navigate();
   };
   return (
+    <li className={classNames('nav-item', props.className)}>
+      <a ref={ref} href="" className="nav-link" onClick={handleClick}>
+        {props.text}
+      </a>
+    </li>
+  );
+});
+
+const NavItem = (props) => {
+  const { to, text} = props;
+  return (
     <>
-      <li
-        className={classNames('nav-item', {
-          active,
-        })}
-      >
-        <a href={to} onClick={onClickAnchor} className="nav-link">
-          {text}
-        </a>
-      </li>
+      <NavLink to={to} activeClassName="active" text={text} exact component={LinkItem}></NavLink>
       <style jsx>
         {`
           .nav-item > .nav-link {
